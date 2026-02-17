@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="48" viewBox="0 0 180 48">
+    <defs>
+        <linearGradient id="gradPortfolio" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgba(0, 242, 255, 0.05);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgba(0, 242, 255, 0);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Card Background -->
+    <rect width="178" height="46" x="1" y="1" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+    <rect width="178" height="46" x="1" y="1" rx="6" fill="url(#gradPortfolio)" />
+    
+    <!-- Icon Container -->
+    <circle cx="28" cy="24" r="14" fill="rgba(0, 242, 255, 0.1)" />
+    
+    <!-- Icon -->
+    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 16.057v-3.057h-2v3.057c-2.086-.339-3.822-1.776-4.576-3.708l1.838-.724c.488 1.254 1.615 2.189 2.738 2.404v-4.029h2v4.029c1.123-.215 2.25-1.15 2.738-2.404l1.838.724c-.753 1.932-2.49 3.369-4.576 3.708z" fill="#00f2ff" transform="translate(18, 14) scale(0.8)" />
+    
+    <!-- Text -->
+    <text x="54" y="29" font-family="'Segoe UI', 'Inter', sans-serif" font-size="14" font-weight="600" fill="#c9d1d9">Portfolio</text>
+    
+    <!-- Hover Glow Effect (Static simulation) -->
+    <rect x="1" y="1" width="178" height="46" rx="6" fill="none" stroke="#00f2ff" stroke-opacity="0.2" stroke-width="1" />
+</svg>
