@@ -1,7 +1,7 @@
 import os
 
 def generate_social_svg(filename, label, icon_path, color="#00f2ff"):
-    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="180" height="48" viewBox="0 0 180 48">
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="190" height="54" viewBox="0 0 190 54">
     <defs>
         <linearGradient id="grad{label}" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:rgba(0, 242, 255, 0.05);stop-opacity:1" />
@@ -10,20 +10,20 @@ def generate_social_svg(filename, label, icon_path, color="#00f2ff"):
     </defs>
     
     <!-- Card Background -->
-    <rect width="178" height="46" x="1" y="1" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1" />
-    <rect width="178" height="46" x="1" y="1" rx="6" fill="url(#grad{label})" />
+    <rect width="188" height="52" x="1" y="1" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+    <rect width="188" height="52" x="1" y="1" rx="8" fill="url(#grad{label})" />
     
     <!-- Icon Container -->
-    <circle cx="28" cy="24" r="14" fill="rgba(0, 242, 255, 0.1)" />
+    <circle cx="30" cy="27" r="16" fill="rgba(0, 242, 255, 0.1)" />
     
     <!-- Icon -->
-    <path d="{icon_path}" fill="{color}" transform="translate(18, 14) scale(0.8)" />
+    <path d="{icon_path}" fill="{color}" transform="translate(19, 16) scale(0.9)" />
     
     <!-- Text -->
-    <text x="54" y="29" font-family="'Segoe UI', 'Inter', sans-serif" font-size="14" font-weight="600" fill="#c9d1d9">{label}</text>
+    <text x="58" y="32" font-family="'Segoe UI', 'Inter', sans-serif" font-size="15" font-weight="600" fill="#c9d1d9">{label}</text>
     
     <!-- Hover Glow Effect (Static simulation) -->
-    <rect x="1" y="1" width="178" height="46" rx="6" fill="none" stroke="{color}" stroke-opacity="0.2" stroke-width="1" />
+    <rect x="1" y="1" width="188" height="52" rx="8" fill="none" stroke="{color}" stroke-opacity="0.2" stroke-width="1" />
 </svg>"""
     
     with open(filename, "w", encoding="utf-8") as f:

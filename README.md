@@ -12,10 +12,10 @@
             <td width="50%" valign="top" style="border: none;">
                 <h2 style="border-bottom: 2px solid #00f2ff; padding-bottom: 8px;">Connect</h2>
                 <p align="center">
-                    <a href="https://github.com/HarshitaOberoi"><img src="btn_github.svg" height="28" alt="GitHub" /></a>
-                    <a href="https://www.linkedin.com/in/harshita-oberoi-7a621b282"><img src="btn_linkedin.svg" height="28" alt="LinkedIn" /></a>
-                    <a href="https://harshitaoberoi-portfolio-website.vercel.app/"><img src="btn_portfolio.svg" height="28" alt="Portfolio" /></a>
-                    <a href="mailto:harshitaoberoi2709@gmail.com"><img src="btn_email.svg" height="28" alt="Email" /></a>
+                    <a href="https://github.com/HarshitaOberoi"><img src="btn_github.svg" height="36" alt="GitHub" /></a>
+                    <a href="https://www.linkedin.com/in/harshita-oberoi-7a621b282"><img src="btn_linkedin.svg" height="36" alt="LinkedIn" /></a>
+                    <a href="https://harshitaoberoi-portfolio-website.vercel.app/"><img src="btn_portfolio.svg" height="36" alt="Portfolio" /></a>
+                    <a href="mailto:harshitaoberoi2709@gmail.com"><img src="btn_email.svg" height="36" alt="Email" /></a>
                 </p>
                 <br />
                 <h2 style="border-bottom: 2px solid #00f2ff; padding-bottom: 8px;">Tech Wisdom</h2>
@@ -52,5 +52,5 @@
 <br />
 
 <div align="center">
-    <p>© Harshita Oberoi | Status: 🟢 Available for hire</p>
+    <p>© Harshita Oberoi | Status:  Available for hire</p>
 </div>
