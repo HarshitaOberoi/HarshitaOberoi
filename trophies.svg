@@ -1,0 +1,26 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+.header { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #c9d1d9; font-size: 18px; font-weight: 700; }
+.title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #00f2ff; font-size: 14px; font-weight: 600; }
+.rank { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #c9d1d9; font-size: 12px; }
+.icon { font-size: 32px; }
+</style>
+<g transform="translate(0, 10)">
+<rect width="240" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+<text x="20" y="60" class="icon">🏆</text>
+<text x="70" y="45" class="title">Smart India Hackathon</text>
+<text x="70" y="70" class="rank">Finalist 2024</text>
+</g>
+<g transform="translate(260, 10)">
+<rect width="240" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+<text x="20" y="60" class="icon">⚡</text>
+<text x="70" y="45" class="title">Google Kick Start</text>
+<text x="70" y="70" class="rank">Top 500 India</text>
+</g>
+<g transform="translate(520, 10)">
+<rect width="240" height="100" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1" />
+<text x="20" y="60" class="icon">🛠️</text>
+<text x="70" y="45" class="title">OSS Contributor</text>
+<text x="70" y="70" class="rank">ML/CICD Tools</text>
+</g>
+</svg>

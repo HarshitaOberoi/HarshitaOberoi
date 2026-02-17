@@ -1,0 +1,9 @@
+<svg width="380" height="100" viewBox="0 0 380 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#0d1117" rx="12" stroke="#30363d" stroke-width="1" />
+  <rect x="0" y="0" width="4" height="100%" fill="#00f2ff" rx="2" />
+  
+  <text x="20" y="30" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#ffffff">NIT Jalandhar</text>
+  <text x="20" y="50" font-family="Inter, sans-serif" font-size="12" fill="#8b949e">2023 – Present</text>
+  <text x="20" y="70" font-family="Inter, sans-serif" font-size="13" fill="#c9d1d9">B.Tech in Computer Science Engineering</text>
+  <text x="20" y="90" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#00f2ff">CGPA: 8.78/10</text>
+</svg>
