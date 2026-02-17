@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="700">
+<!-- Background -->
+<rect width="100%" height="100%" fill="#161b22" rx="12" stroke="#30363d" stroke-width="1" />
+<!-- Main Title -->
+<rect x="20" y="24" width="4" height="16" rx="2" fill="#00f2ff" />
+<text x="32" y="38" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#fff">Technical Skills</text>
+<text x="20" y="60" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">Generative AI / LLM</text>
+<line x1="20" y1="66" x2="360" y2="66" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="85" width="86" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="100" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Agentic AI</text>
+<rect x="112" y="85" width="163" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="121.0" y="100" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Multi-agent pipelines</text>
+<rect x="281" y="85" width="79" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="290.0" y="100" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">LangChain</text>
+<rect x="20" y="113" width="79" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="128" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">LangGraph</text>
+<rect x="105" y="113" width="142" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="114.0" y="128" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Prompt Engineering</text>
+<rect x="253" y="113" width="37" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="262.0" y="128" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">RAG</text>
+<rect x="20" y="141" width="79" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="156" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">CoT/ReAct</text>
+<text x="20" y="181" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">Languages</text>
+<line x1="20" y1="187" x2="360" y2="187" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="206" width="121" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="221" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Python (Expert)</text>
+<rect x="147" y="206" width="128" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="156.0" y="221" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">JavaScript (ES6)</text>
+<rect x="281" y="206" width="23" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="290.0" y="221" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">C</text>
+<rect x="310" y="206" width="37" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="319.0" y="221" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">SQL</text>
+<text x="20" y="246" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">Frameworks &amp; Libraries</text>
+<line x1="20" y1="252" x2="360" y2="252" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="271" width="65" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">FastAPI</text>
+<rect x="91" y="271" width="51" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="100.0" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Flask</text>
+<rect x="148" y="271" width="79" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="157.0" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Streamlit</text>
+<rect x="233" y="271" width="51" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="242.0" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">React</text>
+<rect x="290" y="271" width="65" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="299.0" y="286" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Next.js</text>
+<rect x="20" y="299" width="65" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="314" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Node.js</text>
+<rect x="91" y="299" width="86" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="100.0" y="314" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">TensorFlow</text>
+<rect x="183" y="299" width="65" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="192.0" y="314" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">PyTorch</text>
+<rect x="254" y="299" width="100" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="263.0" y="314" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Scikit-learn</text>
+<text x="20" y="339" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">Integrations &amp; Automation</text>
+<line x1="20" y1="345" x2="360" y2="345" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="364" width="79" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="379" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">REST APIs</text>
+<rect x="105" y="364" width="72" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="114.0" y="379" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Webhooks</text>
+<rect x="183" y="364" width="58" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="192.0" y="379" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Zapier</text>
+<rect x="247" y="364" width="58" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="256.0" y="379" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Pabbly</text>
+<rect x="20" y="392" width="100" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="407" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">WhatsApp API</text>
+<rect x="126" y="392" width="128" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="135.0" y="407" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Payment Gateways</text>
+<text x="20" y="432" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">DevOps &amp; Cloud</text>
+<line x1="20" y1="438" x2="360" y2="438" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="457" width="58" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="472" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Docker</text>
+<rect x="84" y="457" width="114" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="93.0" y="472" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">GitHub Actions</text>
+<rect x="204" y="457" width="107" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="213.0" y="472" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">AWS (EC2, S3)</text>
+<rect x="20" y="485" width="107" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="500" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Microservices</text>
+<rect x="133" y="485" width="51" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="142.0" y="500" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">CI/CD</text>
+<rect x="190" y="485" width="58" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="199.0" y="500" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Vercel</text>
+<text x="20" y="525" font-family="'Inter', sans-serif" font-size="12" fill="#8b949e" style="text-transform: uppercase; letter-spacing: 1px;">Data, Databases &amp; CRM</text>
+<line x1="20" y1="531" x2="360" y2="531" stroke="#30363d" stroke-width="1" />
+<rect x="20" y="550" width="65" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="565" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">MongoDB</text>
+<rect x="91" y="550" width="51" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="100.0" y="565" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">MySQL</text>
+<rect x="148" y="550" width="51" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="157.0" y="565" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Redis</text>
+<rect x="205" y="550" width="72" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="214.0" y="565" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Zoho CRM</text>
+<rect x="20" y="578" width="142" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="593" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Salesforce/HubSpot</text>
+<rect x="168" y="578" width="128" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="177.0" y="593" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Adv Excel/Sheets</text>
+<rect x="20" y="606" width="142" height="22" rx="4" fill="rgba(0, 242, 255, 0.05)" stroke="rgba(0, 242, 255, 0.15)" stroke-width="1" />
+<text x="29.0" y="621" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#00f2ff">Data Visualization</text>
+</svg>

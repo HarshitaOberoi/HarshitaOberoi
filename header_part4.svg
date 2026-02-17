@@ -1,0 +1,30 @@
+        <!-- User Info -->
+        <g transform="translate(130 30)">
+            <text x="0" y="0" font-family="'Inter', sans-serif" font-weight="700" font-size="28" fill="#ffffff" dominant-baseline="hanging">
+                Harshita Oberoi
+            </text>
+            
+            <!-- Pro Badge -->
+            <rect x="230" y="2" width="40" height="20" rx="4" fill="#00f2ff" />
+            <text x="250" y="16" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#000000" text-anchor="middle">PRO</text>
+
+            <!-- Bio -->
+            <text x="0" y="45" font-family="'Inter', sans-serif" font-size="15" fill="#8b949e">
+                <tspan x="0" dy="0">Software Engineer specializing in AI/ML, Fullstack, and DevOps.</tspan>
+                <tspan x="0" dy="24">Bridging ML models &amp; modern web technologies</tspan>
+            </text>
+        </g>
+    </g>
+
+    <!-- Tabs -->
+    <g transform="translate(30 250)">
+        <text x="0" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#00f2ff">Overview</text>
+        <line x1="0" y1="12" x2="65" y2="12" stroke="#00f2ff" stroke-width="2" />
+        
+        <text x="100" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#8b949e">Projects</text>
+        <text x="190" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#8b949e">Packages</text>
+        <text x="290" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#8b949e">Stars</text>
+        
+        <line x1="0" y1="12" x2="740" y2="12" stroke="#30363d" stroke-width="1" stroke-opacity="0.5" />
+    </g>
+</svg>

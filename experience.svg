@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="680">
+<!-- Background -->
+<rect width="100%" height="100%" fill="#161b22" rx="12" stroke="#30363d" stroke-width="1" />
+<!-- Header -->
+<rect x="20" y="24" width="4" height="16" rx="2" fill="#00f2ff" />
+<text x="32" y="38" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#fff">Experience</text>
+<!-- Timeline Line -->
+<line x1="40" y1="60" x2="40" y2="640" stroke="#30363d" stroke-width="2" />
+<circle cx="40" cy="76" r="6" fill="#090c10" stroke="#00f2ff" stroke-width="2" />
+<text x="60" y="80" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#fff">Software Engineer Intern</text>
+<text x="60" y="100" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#00f2ff">Krins Digital</text>
+<text x="60" y="125" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Engineered crypto futures trading bot (RSI, EMA, MACD) </text>
+<text x="60" y="143" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  boosting win rate by 15% and reducing latency by 30%. </text>
+<text x="60" y="161" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Built secure REST APIs (Node.js, FastAPI) and </text>
+<text x="60" y="179" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  React/Next.js dashboards. </text>
+<text x="60" y="197" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Automated CI/CD with Docker + GitHub Actions. </text>
+<circle cx="40" cy="231" r="6" fill="#090c10" stroke="#00f2ff" stroke-width="2" />
+<text x="60" y="235" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#fff">Software Engineer Intern (Summer Analyst)</text>
+<text x="60" y="255" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#00f2ff">G S</text>
+<text x="60" y="280" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Built Agentic AI workflows with LangGraph/LangChain </text>
+<text x="60" y="298" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  using Router and Supervisor architectures. </text>
+<text x="60" y="316" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Scaled multi-agent pipelines for 10K–15K row datasets. </text>
+<text x="60" y="334" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Applied CoT, ReAct, Reflexion reasoning to reduce </text>
+<text x="60" y="352" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  hallucinations. </text>
+<circle cx="40" cy="386" r="6" fill="#090c10" stroke="#00f2ff" stroke-width="2" />
+<text x="60" y="390" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#fff">Backend Developer (Freelance)</text>
+<text x="60" y="410" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#00f2ff">LunaLady AI</text>
+<text x="60" y="435" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Architected backend NLP APIs powering a women’s health </text>
+<text x="60" y="453" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  assistant; scaled to 5K+ DAUs. </text>
+<text x="60" y="471" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Optimized query performance reducing response time by </text>
+<text x="60" y="489" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  40%. </text>
+<circle cx="40" cy="523" r="6" fill="#090c10" stroke="#00f2ff" stroke-width="2" />
+<text x="60" y="527" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#fff">Software Engineer Intern</text>
+<text x="60" y="547" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#00f2ff">Kodefort</text>
+<text x="60" y="572" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Engineered responsive web apps using React.js, </text>
+<text x="60" y="590" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  Next.js, and Tailwind CSS. </text>
+<text x="60" y="608" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">• Built secure full-stack solutions with Laravel, </text>
+<text x="60" y="626" font-family="'Inter', sans-serif" font-size="13" fill="#8b949e">  MongoDB, and MySQL. </text>
+</svg>

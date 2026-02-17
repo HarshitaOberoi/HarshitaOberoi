@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="250">
+    <style>
+        .chart-text { font-family: 'Inter', sans-serif; font-size: 13px; fill: #8b949e; }
+    </style>
+    
+    <!-- Title -->
+    <text x="0" y="15" class="chart-text">Total Interaction Growth</text>
+    
+    <!-- Card Background -->
+    <rect x="0" y="25" width="480" height="225" rx="12" fill="#161b22" stroke="#30363d" stroke-width="1" />
+    
+    <!-- Chart Area (Inside Card) -->
+    <svg x="0" y="25" width="480" height="225" viewBox="0 0 500 150" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="tealGradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stop-color="#00f2ff" stop-opacity="0.5" />
+                <stop offset="100%" stop-color="#00f2ff" stop-opacity="0" />
+            </linearGradient>
+        </defs>
+        
+        <!-- Area -->
+        <path d="M0,150 L0,120 C50,120 50,100 100,105 C150,110 150,90 200,80 C250,70 250,90 300,70 C350,50 350,60 400,40 C450,20 450,30 500,10 L500,150 Z" fill="url(#tealGradient)" />
+        
+        <!-- Line -->
+        <path d="M0,120 C50,120 50,100 100,105 C150,110 150,90 200,80 C250,70 250,90 300,70 C350,50 350,60 400,40 C450,20 450,30 500,10" fill="none" stroke="#00f2ff" stroke-width="3" stroke-linecap="round" />
+        
+        <!-- Points -->
+        <circle cx="100" cy="105" r="3" fill="#fff" />
+        <circle cx="200" cy="80" r="3" fill="#fff" />
+        <circle cx="300" cy="70" r="3" fill="#fff" />
+        <circle cx="400" cy="40" r="3" fill="#fff" />
+        <circle cx="500" cy="10" r="3" fill="#fff" />
+    </svg>
+</svg>

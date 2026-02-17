@@ -1,0 +1,3 @@
+        <!-- Avatar Circle -->
+        <circle cx="50" cy="50" r="52" fill="none" stroke="#00f2ff" stroke-width="2" filter="url(#neonGlow)" />
+        <image x="0" y="0" width="100" height="100" clip-path="url(#circleClip)" href="data:image/jpeg;base64,

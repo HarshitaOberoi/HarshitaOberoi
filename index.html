@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshita Oberoi | Pro Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #090c10;
+            --card-bg: #0d1117;
+            --section-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-teal: #00f2ff;
+            --accent-green: #2ea043;
+            --glow-color: rgba(0, 242, 255, 0.5);
+            --timeline-line: #30363d;
+        }
+
+        body {
+            background-color: #000;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* The glowing outer frame */
+        .frame {
+            border: 4px solid var(--accent-teal);
+            border-radius: 20px;
+            box-shadow: 0 0 20px var(--glow-color), inset 0 0 20px var(--glow-color);
+            background: var(--bg-dark);
+            width: 100%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            height: 250px;
+            background: linear-gradient(180deg, rgba(0, 242, 255, 0.08) 0%, transparent 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .avatar-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #21262d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--accent-teal);
+            border: 2px solid var(--accent-teal);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+            overflow: hidden;
+        }
+
+        .user-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-name-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .pro-badge {
+            background: var(--accent-teal);
+            color: #000;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .bio {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin: 0;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 32px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tab {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding-bottom: 12px;
+            margin-bottom: -13px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            color: var(--accent-teal);
+            border-bottom-color: var(--accent-teal);
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.4);
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 16px;
+            background: var(--accent-teal);
+            border-radius: 2px;
+            box-shadow: 0 0 8px var(--accent-teal);
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 8px 0;
+        }
+
+        /* Content Cards generic */
+        .content-card {
+            background: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Social/Featured Grid (Small cards) */
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .social-card {
+            background: #0d1117;
+            background-image:
+                linear-gradient(335deg, rgba(0, 242, 255, 0.03) 23px, transparent 23px),
+                linear-gradient(155deg, rgba(0, 242, 255, 0.03) 23px, transparent 23px),
+                linear-gradient(335deg, rgba(0, 242, 255, 0.03) 23px, transparent 23px),
+                linear-gradient(155deg, rgba(0, 242, 255, 0.03) 23px, transparent 23px);
+            background-size: 58px 58px;
+            background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-card:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: #12171e;
+        }
+
+        .social-icon {
+            color: var(--accent-teal);
+        }
+
+        .social-text {
+            font-size: 13px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-category {
+            margin-bottom: 20px;
+        }
+
+        .skills-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-category-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-tag {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid rgba(0, 242, 255, 0.15);
+            color: var(--accent-teal);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 242, 255, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .skill-tag.highlight {
+            border-color: var(--accent-teal);
+            box-shadow: 0 0 5px rgba(0, 242, 255, 0.2);
+        }
+
+        /* Education Card */
+        .edu-card {
+            background: #0d1117;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-teal);
+        }
+
+        .edu-dates {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--timeline-line);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 0px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-dark);
+            border: 2px solid var(--accent-teal);
+            box-shadow: 0 0 8px var(--accent-teal);
+        }
+
+        .role-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .company-name {
+            color: var(--accent-teal);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .role-dates {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .role-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .role-desc ul {
+            margin: 8px 0 0 0;
+            padding-left: 16px;
+        }
+
+        .role-desc li {
+            margin-bottom: 4px;
+        }
+
+        /* Analytics / Right Column utility */
+        .stats-img {
+            width: 100%;
+            border-radius: 6px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+
+        /* Chart container */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .full-width-chart {
+            width: 100%;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .global-particles-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            pointer-events: none;
+            background: url('particles.svg') no-repeat center center;
+            background-size: cover;
+            mix-blend-mode: screen;
+            opacity: 0.4;
+        }
+
+        /* Tech Wisdom Terminal */
+        .wisdom-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .term-header {
+            background: #161b22;
+            padding: 8px 12px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .term-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .term-dot.red {
+            background: #ff5f56;
+        }
+
+        .term-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .term-dot.green {
+            background: #27c93f;
+        }
+
+        .term-body {
+            padding: 16px;
+            color: #00f2ff;
+            font-size: 13px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .fact-item {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            opacity: 0;
+            animation: fadeText 48s infinite;
+        }
+
+        /* Stagger animations for 8 items */
+        .fact-item:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .fact-item:nth-child(2) {
+            animation-delay: 6s;
+        }
+
+        .fact-item:nth-child(3) {
+            animation-delay: 12s;
+        }
+
+        .fact-item:nth-child(4) {
+            animation-delay: 18s;
+        }
+
+        .fact-item:nth-child(5) {
+            animation-delay: 24s;
+        }
+
+        .fact-item:nth-child(6) {
+            animation-delay: 30s;
+        }
+
+        .fact-item:nth-child(7) {
+            animation-delay: 36s;
+        }
+
+        .fact-item:nth-child(8) {
+            animation-delay: 42s;
+        }
+
+        .fact-item:nth-child(8) {
+            animation-delay: 28s;
+        }
+
+        @keyframes fadeText {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            2% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            12% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="global-particles-overlay"></div>
+
+    <div class="frame">
+        <div class="header-bg">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="barGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#00f2ff" stop-opacity="0.35"/><stop offset="50%" stop-color="#00f2ff" stop-opacity="0.1"/><stop offset="100%" stop-color="#00f2ff" stop-opacity="0.0"/></linearGradient>
+<filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="0.3" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    <feGaussianBlur stdDeviation="1.5" result="glow"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 1 0 0 0  0 0 0 1 0" in="glow" result="coloredGlow"/>
+    <feMerge>
+        <feMergeNode in="coloredGlow"/>
+        <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+</filter>
+</defs><g transform="translate(0.00 0)">
+    <rect y="97.11" width="0.40" height="2.89" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="2.89;1.15;2.89;2.31;2.89" keyTimes="0;0.4;0.6;0.8;1" dur="1.85s" repeatCount="indefinite" begin="-1.67s"/>
+        <animate attributeName="y" values="97.11;98.85;97.11;97.69;97.11" keyTimes="0;0.4;0.6;0.8;1" dur="1.85s" repeatCount="indefinite" begin="-1.67s"/>
+    </rect>
+    </g><g transform="translate(1.00 0)">
+    <rect y="94.09" width="0.40" height="5.91" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="5.91;2.36;5.91;4.73;5.91" keyTimes="0;0.4;0.6;0.8;1" dur="2.39s" repeatCount="indefinite" begin="-0.67s"/>
+        <animate attributeName="y" values="94.09;97.64;94.09;95.27;94.09" keyTimes="0;0.4;0.6;0.8;1" dur="2.39s" repeatCount="indefinite" begin="-0.67s"/>
+    </rect>
+    </g><g transform="translate(2.00 0)">
+    <rect y="93.01" width="0.40" height="6.99" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="6.99;2.80;6.99;5.60;6.99" keyTimes="0;0.4;0.6;0.8;1" dur="3.10s" repeatCount="indefinite" begin="-1.64s"/>
+        <animate attributeName="y" values="93.01;97.20;93.01;94.40;93.01" keyTimes="0;0.4;0.6;0.8;1" dur="3.10s" repeatCount="indefinite" begin="-1.64s"/>
+    </rect>
+    </g><g transform="translate(3.00 0)">
+    <rect y="94.84" width="0.40" height="5.16" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="5.16;2.06;5.16;4.13;5.16" keyTimes="0;0.4;0.6;0.8;1" dur="2.28s" repeatCount="indefinite" begin="-0.76s"/>
+        <animate attributeName="y" values="94.84;97.94;94.84;95.87;94.84" keyTimes="0;0.4;0.6;0.8;1" dur="2.28s" repeatCount="indefinite" begin="-0.76s"/>
+    </rect>
+    </g><g transform="translate(4.00 0)">
+    <rect y="91.91" width="0.40" height="8.09" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="8.09;3.24;8.09;6.47;8.09" keyTimes="0;0.4;0.6;0.8;1" dur="3.13s" repeatCount="indefinite" begin="-1.35s"/>
+        <animate attributeName="y" values="91.91;96.76;91.91;93.53;91.91" keyTimes="0;0.4;0.6;0.8;1" dur="3.13s" repeatCount="indefinite" begin="-1.35s"/>
+    </rect>
+    </g><g transform="translate(5.00 0)">
+    <rect y="81.05" width="0.40" height="18.95" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="18.95;7.58;18.95;15.16;18.95" keyTimes="0;0.4;0.6;0.8;1" dur="2.52s" repeatCount="indefinite" begin="-1.00s"/>
+        <animate attributeName="y" values="81.05;92.42;81.05;84.84;81.05" keyTimes="0;0.4;0.6;0.8;1" dur="2.52s" repeatCount="indefinite" begin="-1.00s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="81.05;92.42;81.05;84.84;81.05" keyTimes="0;0.4;0.6;0.8;1" dur="2.52s" repeatCount="indefinite" begin="-1.00s"/>
+        </circle>
+        </g><g transform="translate(6.00 0)">
+    <rect y="89.76" width="0.40" height="10.24" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="10.24;4.10;10.24;8.19;10.24" keyTimes="0;0.4;0.6;0.8;1" dur="3.19s" repeatCount="indefinite" begin="-1.38s"/>
+        <animate attributeName="y" values="89.76;95.90;89.76;91.81;89.76" keyTimes="0;0.4;0.6;0.8;1" dur="3.19s" repeatCount="indefinite" begin="-1.38s"/>
+    </rect>
+    </g><g transform="translate(7.00 0)">
+    <rect y="90.24" width="0.40" height="9.76" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="9.76;3.90;9.76;7.81;9.76" keyTimes="0;0.4;0.6;0.8;1" dur="1.53s" repeatCount="indefinite" begin="-0.61s"/>
+        <animate attributeName="y" values="90.24;96.10;90.24;92.19;90.24" keyTimes="0;0.4;0.6;0.8;1" dur="1.53s" repeatCount="indefinite" begin="-0.61s"/>
+    </rect>
+    </g><g transform="translate(8.00 0)">
+    <rect y="82.31" width="0.40" height="17.69" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="17.69;7.08;17.69;14.15;17.69" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-0.58s"/>
+        <animate attributeName="y" values="82.31;92.92;82.31;85.85;82.31" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-0.58s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="82.31;92.92;82.31;85.85;82.31" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-0.58s"/>
+        </circle>
+        </g><g transform="translate(9.00 0)">
+    <rect y="86.63" width="0.40" height="13.37" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="13.37;5.35;13.37;10.70;13.37" keyTimes="0;0.4;0.6;0.8;1" dur="1.96s" repeatCount="indefinite" begin="-0.35s"/>
+        <animate attributeName="y" values="86.63;94.65;86.63;89.30;86.63" keyTimes="0;0.4;0.6;0.8;1" dur="1.96s" repeatCount="indefinite" begin="-0.35s"/>
+    </rect>
+    </g><g transform="translate(10.00 0)">
+    <rect y="74.90" width="0.40" height="25.10" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="25.10;10.04;25.10;20.08;25.10" keyTimes="0;0.4;0.6;0.8;1" dur="2.43s" repeatCount="indefinite" begin="-1.83s"/>
+        <animate attributeName="y" values="74.90;89.96;74.90;79.92;74.90" keyTimes="0;0.4;0.6;0.8;1" dur="2.43s" repeatCount="indefinite" begin="-1.83s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="74.90;89.96;74.90;79.92;74.90" keyTimes="0;0.4;0.6;0.8;1" dur="2.43s" repeatCount="indefinite" begin="-1.83s"/>
+        </circle>
+        </g><g transform="translate(11.00 0)">
+    <rect y="69.99" width="0.40" height="30.01" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="30.01;12.00;30.01;24.01;30.01" keyTimes="0;0.4;0.6;0.8;1" dur="2.07s" repeatCount="indefinite" begin="-1.23s"/>
+        <animate attributeName="y" values="69.99;88.00;69.99;75.99;69.99" keyTimes="0;0.4;0.6;0.8;1" dur="2.07s" repeatCount="indefinite" begin="-1.23s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="69.99;88.00;69.99;75.99;69.99" keyTimes="0;0.4;0.6;0.8;1" dur="2.07s" repeatCount="indefinite" begin="-1.23s"/>
+        </circle>
+        </g><g transform="translate(12.00 0)">
+    <rect y="75.43" width="0.40" height="24.57" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="24.57;9.83;24.57;19.65;24.57" keyTimes="0;0.4;0.6;0.8;1" dur="2.18s" repeatCount="indefinite" begin="-1.08s"/>
+        <animate attributeName="y" values="75.43;90.17;75.43;80.35;75.43" keyTimes="0;0.4;0.6;0.8;1" dur="2.18s" repeatCount="indefinite" begin="-1.08s"/>
+    </rect>
+    </g><g transform="translate(13.00 0)">
+    <rect y="58.94" width="0.40" height="41.06" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="41.06;16.42;41.06;32.85;41.06" keyTimes="0;0.4;0.6;0.8;1" dur="2.09s" repeatCount="indefinite" begin="-1.19s"/>
+        <animate attributeName="y" values="58.94;83.58;58.94;67.15;58.94" keyTimes="0;0.4;0.6;0.8;1" dur="2.09s" repeatCount="indefinite" begin="-1.19s"/>
+    </rect>
+    </g><g transform="translate(14.00 0)">
+    <rect y="80.44" width="0.40" height="19.56" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="19.56;7.82;19.56;15.65;19.56" keyTimes="0;0.4;0.6;0.8;1" dur="2.76s" repeatCount="indefinite" begin="-0.45s"/>
+        <animate attributeName="y" values="80.44;92.18;80.44;84.35;80.44" keyTimes="0;0.4;0.6;0.8;1" dur="2.76s" repeatCount="indefinite" begin="-0.45s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="80.44;92.18;80.44;84.35;80.44" keyTimes="0;0.4;0.6;0.8;1" dur="2.76s" repeatCount="indefinite" begin="-0.45s"/>
+        </circle>
+        </g><g transform="translate(15.00 0)">
+    <rect y="75.57" width="0.40" height="24.43" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="24.43;9.77;24.43;19.55;24.43" keyTimes="0;0.4;0.6;0.8;1" dur="3.42s" repeatCount="indefinite" begin="-1.16s"/>
+        <animate attributeName="y" values="75.57;90.23;75.57;80.45;75.57" keyTimes="0;0.4;0.6;0.8;1" dur="3.42s" repeatCount="indefinite" begin="-1.16s"/>
+    </rect>
+    </g><g transform="translate(16.00 0)">
+    <rect y="75.58" width="0.40" height="24.42" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="24.42;9.77;24.42;19.53;24.42" keyTimes="0;0.4;0.6;0.8;1" dur="2.53s" repeatCount="indefinite" begin="-1.07s"/>
+        <animate attributeName="y" values="75.58;90.23;75.58;80.47;75.58" keyTimes="0;0.4;0.6;0.8;1" dur="2.53s" repeatCount="indefinite" begin="-1.07s"/>
+    </rect>
+    </g><g transform="translate(17.00 0)">
+    <rect y="65.65" width="0.40" height="34.35" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="34.35;13.74;34.35;27.48;34.35" keyTimes="0;0.4;0.6;0.8;1" dur="1.86s" repeatCount="indefinite" begin="-0.83s"/>
+        <animate attributeName="y" values="65.65;86.26;65.65;72.52;65.65" keyTimes="0;0.4;0.6;0.8;1" dur="1.86s" repeatCount="indefinite" begin="-0.83s"/>
+    </rect>
+    </g><g transform="translate(18.00 0)">
+    <rect y="55.51" width="0.40" height="44.49" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="44.49;17.79;44.49;35.59;44.49" keyTimes="0;0.4;0.6;0.8;1" dur="2.52s" repeatCount="indefinite" begin="-1.30s"/>
+        <animate attributeName="y" values="55.51;82.21;55.51;64.41;55.51" keyTimes="0;0.4;0.6;0.8;1" dur="2.52s" repeatCount="indefinite" begin="-1.30s"/>
+    </rect>
+    </g><g transform="translate(19.00 0)">
+    <rect y="70.39" width="0.40" height="29.61" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="29.61;11.84;29.61;23.69;29.61" keyTimes="0;0.4;0.6;0.8;1" dur="1.75s" repeatCount="indefinite" begin="-1.22s"/>
+        <animate attributeName="y" values="70.39;88.16;70.39;76.31;70.39" keyTimes="0;0.4;0.6;0.8;1" dur="1.75s" repeatCount="indefinite" begin="-1.22s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="70.39;88.16;70.39;76.31;70.39" keyTimes="0;0.4;0.6;0.8;1" dur="1.75s" repeatCount="indefinite" begin="-1.22s"/>
+        </circle>
+        </g><g transform="translate(20.00 0)">
+    <rect y="65.89" width="0.40" height="34.11" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="34.11;13.64;34.11;27.29;34.11" keyTimes="0;0.4;0.6;0.8;1" dur="2.01s" repeatCount="indefinite" begin="-1.23s"/>
+        <animate attributeName="y" values="65.89;86.36;65.89;72.71;65.89" keyTimes="0;0.4;0.6;0.8;1" dur="2.01s" repeatCount="indefinite" begin="-1.23s"/>
+    </rect>
+    </g><g transform="translate(21.00 0)">
+    <rect y="49.27" width="0.40" height="50.73" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="50.73;20.29;50.73;40.58;50.73" keyTimes="0;0.4;0.6;0.8;1" dur="1.80s" repeatCount="indefinite" begin="-1.39s"/>
+        <animate attributeName="y" values="49.27;79.71;49.27;59.42;49.27" keyTimes="0;0.4;0.6;0.8;1" dur="1.80s" repeatCount="indefinite" begin="-1.39s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="49.27;79.71;49.27;59.42;49.27" keyTimes="0;0.4;0.6;0.8;1" dur="1.80s" repeatCount="indefinite" begin="-1.39s"/>
+        </circle>
+        </g><g transform="translate(22.00 0)">
+    <rect y="40.92" width="0.40" height="59.08" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="59.08;23.63;59.08;47.26;59.08" keyTimes="0;0.4;0.6;0.8;1" dur="1.82s" repeatCount="indefinite" begin="-0.57s"/>
+        <animate attributeName="y" values="40.92;76.37;40.92;52.74;40.92" keyTimes="0;0.4;0.6;0.8;1" dur="1.82s" repeatCount="indefinite" begin="-0.57s"/>
+    </rect>
+    </g><g transform="translate(23.00 0)">
+    <rect y="49.44" width="0.40" height="50.56" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="50.56;20.22;50.56;40.44;50.56" keyTimes="0;0.4;0.6;0.8;1" dur="1.61s" repeatCount="indefinite" begin="-1.57s"/>
+        <animate attributeName="y" values="49.44;79.78;49.44;59.56;49.44" keyTimes="0;0.4;0.6;0.8;1" dur="1.61s" repeatCount="indefinite" begin="-1.57s"/>
+    </rect>
+    </g><g transform="translate(24.00 0)">
+    <rect y="42.84" width="0.40" height="57.16" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="57.16;22.86;57.16;45.73;57.16" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.57s"/>
+        <animate attributeName="y" values="42.84;77.14;42.84;54.27;42.84" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.57s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="42.84;77.14;42.84;54.27;42.84" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.57s"/>
+        </circle>
+        </g><g transform="translate(25.00 0)">
+    <rect y="41.52" width="0.40" height="58.48" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="58.48;23.39;58.48;46.79;58.48" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.57s"/>
+        <animate attributeName="y" values="41.52;76.61;41.52;53.21;41.52" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.57s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="41.52;76.61;41.52;53.21;41.52" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.57s"/>
+        </circle>
+        </g><g transform="translate(26.00 0)">
+    <rect y="35.18" width="0.40" height="64.82" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="64.82;25.93;64.82;51.86;64.82" keyTimes="0;0.4;0.6;0.8;1" dur="3.00s" repeatCount="indefinite" begin="-1.24s"/>
+        <animate attributeName="y" values="35.18;74.07;35.18;48.14;35.18" keyTimes="0;0.4;0.6;0.8;1" dur="3.00s" repeatCount="indefinite" begin="-1.24s"/>
+    </rect>
+    </g><g transform="translate(27.00 0)">
+    <rect y="44.29" width="0.40" height="55.71" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="55.71;22.28;55.71;44.57;55.71" keyTimes="0;0.4;0.6;0.8;1" dur="1.63s" repeatCount="indefinite" begin="-1.36s"/>
+        <animate attributeName="y" values="44.29;77.72;44.29;55.43;44.29" keyTimes="0;0.4;0.6;0.8;1" dur="1.63s" repeatCount="indefinite" begin="-1.36s"/>
+    </rect>
+    </g><g transform="translate(28.00 0)">
+    <rect y="32.33" width="0.40" height="67.67" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="67.67;27.07;67.67;54.13;67.67" keyTimes="0;0.4;0.6;0.8;1" dur="1.96s" repeatCount="indefinite" begin="-0.61s"/>
+        <animate attributeName="y" values="32.33;72.93;32.33;45.87;32.33" keyTimes="0;0.4;0.6;0.8;1" dur="1.96s" repeatCount="indefinite" begin="-0.61s"/>
+    </rect>
+    </g><g transform="translate(29.00 0)">
+    <rect y="60.25" width="0.40" height="39.75" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="39.75;15.90;39.75;31.80;39.75" keyTimes="0;0.4;0.6;0.8;1" dur="1.63s" repeatCount="indefinite" begin="-1.66s"/>
+        <animate attributeName="y" values="60.25;84.10;60.25;68.20;60.25" keyTimes="0;0.4;0.6;0.8;1" dur="1.63s" repeatCount="indefinite" begin="-1.66s"/>
+    </rect>
+    </g><g transform="translate(30.00 0)">
+    <rect y="48.37" width="0.40" height="51.63" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="51.63;20.65;51.63;41.31;51.63" keyTimes="0;0.4;0.6;0.8;1" dur="2.49s" repeatCount="indefinite" begin="-1.13s"/>
+        <animate attributeName="y" values="48.37;79.35;48.37;58.69;48.37" keyTimes="0;0.4;0.6;0.8;1" dur="2.49s" repeatCount="indefinite" begin="-1.13s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="48.37;79.35;48.37;58.69;48.37" keyTimes="0;0.4;0.6;0.8;1" dur="2.49s" repeatCount="indefinite" begin="-1.13s"/>
+        </circle>
+        </g><g transform="translate(31.00 0)">
+    <rect y="25.53" width="0.40" height="74.47" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="74.47;29.79;74.47;59.58;74.47" keyTimes="0;0.4;0.6;0.8;1" dur="1.52s" repeatCount="indefinite" begin="-0.87s"/>
+        <animate attributeName="y" values="25.53;70.21;25.53;40.42;25.53" keyTimes="0;0.4;0.6;0.8;1" dur="1.52s" repeatCount="indefinite" begin="-0.87s"/>
+    </rect>
+    </g><g transform="translate(32.00 0)">
+    <rect y="23.23" width="0.40" height="76.77" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="76.77;30.71;76.77;61.42;76.77" keyTimes="0;0.4;0.6;0.8;1" dur="1.70s" repeatCount="indefinite" begin="-0.53s"/>
+        <animate attributeName="y" values="23.23;69.29;23.23;38.58;23.23" keyTimes="0;0.4;0.6;0.8;1" dur="1.70s" repeatCount="indefinite" begin="-0.53s"/>
+    </rect>
+    </g><g transform="translate(33.00 0)">
+    <rect y="67.42" width="0.40" height="32.58" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="32.58;13.03;32.58;26.06;32.58" keyTimes="0;0.4;0.6;0.8;1" dur="2.41s" repeatCount="indefinite" begin="-0.74s"/>
+        <animate attributeName="y" values="67.42;86.97;67.42;73.94;67.42" keyTimes="0;0.4;0.6;0.8;1" dur="2.41s" repeatCount="indefinite" begin="-0.74s"/>
+    </rect>
+    </g><g transform="translate(34.00 0)">
+    <rect y="29.51" width="0.40" height="70.49" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="70.49;28.20;70.49;56.39;70.49" keyTimes="0;0.4;0.6;0.8;1" dur="2.90s" repeatCount="indefinite" begin="-1.79s"/>
+        <animate attributeName="y" values="29.51;71.80;29.51;43.61;29.51" keyTimes="0;0.4;0.6;0.8;1" dur="2.90s" repeatCount="indefinite" begin="-1.79s"/>
+    </rect>
+    </g><g transform="translate(35.00 0)">
+    <rect y="67.91" width="0.40" height="32.09" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="32.09;12.83;32.09;25.67;32.09" keyTimes="0;0.4;0.6;0.8;1" dur="2.12s" repeatCount="indefinite" begin="-0.46s"/>
+        <animate attributeName="y" values="67.91;87.17;67.91;74.33;67.91" keyTimes="0;0.4;0.6;0.8;1" dur="2.12s" repeatCount="indefinite" begin="-0.46s"/>
+    </rect>
+    </g><g transform="translate(36.00 0)">
+    <rect y="36.21" width="0.40" height="63.79" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="63.79;25.52;63.79;51.03;63.79" keyTimes="0;0.4;0.6;0.8;1" dur="1.78s" repeatCount="indefinite" begin="-0.49s"/>
+        <animate attributeName="y" values="36.21;74.48;36.21;48.97;36.21" keyTimes="0;0.4;0.6;0.8;1" dur="1.78s" repeatCount="indefinite" begin="-0.49s"/>
+    </rect>
+    </g><g transform="translate(37.00 0)">
+    <rect y="60.43" width="0.40" height="39.57" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="39.57;15.83;39.57;31.66;39.57" keyTimes="0;0.4;0.6;0.8;1" dur="2.69s" repeatCount="indefinite" begin="-0.62s"/>
+        <animate attributeName="y" values="60.43;84.17;60.43;68.34;60.43" keyTimes="0;0.4;0.6;0.8;1" dur="2.69s" repeatCount="indefinite" begin="-0.62s"/>
+    </rect>
+    </g><g transform="translate(38.00 0)">
+    <rect y="51.53" width="0.40" height="48.47" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="48.47;19.39;48.47;38.78;48.47" keyTimes="0;0.4;0.6;0.8;1" dur="1.67s" repeatCount="indefinite" begin="-1.57s"/>
+        <animate attributeName="y" values="51.53;80.61;51.53;61.22;51.53" keyTimes="0;0.4;0.6;0.8;1" dur="1.67s" repeatCount="indefinite" begin="-1.57s"/>
+    </rect>
+    </g><g transform="translate(39.00 0)">
+    <rect y="41.59" width="0.40" height="58.41" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="58.41;23.36;58.41;46.73;58.41" keyTimes="0;0.4;0.6;0.8;1" dur="2.73s" repeatCount="indefinite" begin="-1.40s"/>
+        <animate attributeName="y" values="41.59;76.64;41.59;53.27;41.59" keyTimes="0;0.4;0.6;0.8;1" dur="2.73s" repeatCount="indefinite" begin="-1.40s"/>
+    </rect>
+    </g><g transform="translate(40.00 0)">
+    <rect y="22.50" width="0.40" height="77.50" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="77.50;31.00;77.50;62.00;77.50" keyTimes="0;0.4;0.6;0.8;1" dur="2.10s" repeatCount="indefinite" begin="-0.47s"/>
+        <animate attributeName="y" values="22.50;69.00;22.50;38.00;22.50" keyTimes="0;0.4;0.6;0.8;1" dur="2.10s" repeatCount="indefinite" begin="-0.47s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="22.50;69.00;22.50;38.00;22.50" keyTimes="0;0.4;0.6;0.8;1" dur="2.10s" repeatCount="indefinite" begin="-0.47s"/>
+        </circle>
+        </g><g transform="translate(41.00 0)">
+    <rect y="48.62" width="0.40" height="51.38" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="51.38;20.55;51.38;41.11;51.38" keyTimes="0;0.4;0.6;0.8;1" dur="2.92s" repeatCount="indefinite" begin="-1.98s"/>
+        <animate attributeName="y" values="48.62;79.45;48.62;58.89;48.62" keyTimes="0;0.4;0.6;0.8;1" dur="2.92s" repeatCount="indefinite" begin="-1.98s"/>
+    </rect>
+    </g><g transform="translate(42.00 0)">
+    <rect y="65.28" width="0.40" height="34.72" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="34.72;13.89;34.72;27.78;34.72" keyTimes="0;0.4;0.6;0.8;1" dur="3.22s" repeatCount="indefinite" begin="-0.57s"/>
+        <animate attributeName="y" values="65.28;86.11;65.28;72.22;65.28" keyTimes="0;0.4;0.6;0.8;1" dur="3.22s" repeatCount="indefinite" begin="-0.57s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="65.28;86.11;65.28;72.22;65.28" keyTimes="0;0.4;0.6;0.8;1" dur="3.22s" repeatCount="indefinite" begin="-0.57s"/>
+        </circle>
+        </g><g transform="translate(43.00 0)">
+    <rect y="42.25" width="0.40" height="57.75" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="57.75;23.10;57.75;46.20;57.75" keyTimes="0;0.4;0.6;0.8;1" dur="2.18s" repeatCount="indefinite" begin="-0.21s"/>
+        <animate attributeName="y" values="42.25;76.90;42.25;53.80;42.25" keyTimes="0;0.4;0.6;0.8;1" dur="2.18s" repeatCount="indefinite" begin="-0.21s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="42.25;76.90;42.25;53.80;42.25" keyTimes="0;0.4;0.6;0.8;1" dur="2.18s" repeatCount="indefinite" begin="-0.21s"/>
+        </circle>
+        </g><g transform="translate(44.00 0)">
+    <rect y="49.11" width="0.40" height="50.89" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="50.89;20.35;50.89;40.71;50.89" keyTimes="0;0.4;0.6;0.8;1" dur="2.77s" repeatCount="indefinite" begin="-1.01s"/>
+        <animate attributeName="y" values="49.11;79.65;49.11;59.29;49.11" keyTimes="0;0.4;0.6;0.8;1" dur="2.77s" repeatCount="indefinite" begin="-1.01s"/>
+    </rect>
+    </g><g transform="translate(45.00 0)">
+    <rect y="33.43" width="0.40" height="66.57" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="66.57;26.63;66.57;53.25;66.57" keyTimes="0;0.4;0.6;0.8;1" dur="1.50s" repeatCount="indefinite" begin="-1.04s"/>
+        <animate attributeName="y" values="33.43;73.37;33.43;46.75;33.43" keyTimes="0;0.4;0.6;0.8;1" dur="1.50s" repeatCount="indefinite" begin="-1.04s"/>
+    </rect>
+    </g><g transform="translate(46.00 0)">
+    <rect y="56.72" width="0.40" height="43.28" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="43.28;17.31;43.28;34.63;43.28" keyTimes="0;0.4;0.6;0.8;1" dur="2.10s" repeatCount="indefinite" begin="-1.34s"/>
+        <animate attributeName="y" values="56.72;82.69;56.72;65.37;56.72" keyTimes="0;0.4;0.6;0.8;1" dur="2.10s" repeatCount="indefinite" begin="-1.34s"/>
+    </rect>
+    </g><g transform="translate(47.00 0)">
+    <rect y="40.52" width="0.40" height="59.48" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="59.48;23.79;59.48;47.59;59.48" keyTimes="0;0.4;0.6;0.8;1" dur="1.51s" repeatCount="indefinite" begin="-0.14s"/>
+        <animate attributeName="y" values="40.52;76.21;40.52;52.41;40.52" keyTimes="0;0.4;0.6;0.8;1" dur="1.51s" repeatCount="indefinite" begin="-0.14s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="40.52;76.21;40.52;52.41;40.52" keyTimes="0;0.4;0.6;0.8;1" dur="1.51s" repeatCount="indefinite" begin="-0.14s"/>
+        </circle>
+        </g><g transform="translate(48.00 0)">
+    <rect y="11.27" width="0.40" height="88.73" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="88.73;35.49;88.73;70.99;88.73" keyTimes="0;0.4;0.6;0.8;1" dur="1.59s" repeatCount="indefinite" begin="-0.72s"/>
+        <animate attributeName="y" values="11.27;64.51;11.27;29.01;11.27" keyTimes="0;0.4;0.6;0.8;1" dur="1.59s" repeatCount="indefinite" begin="-0.72s"/>
+    </rect>
+    </g><g transform="translate(49.00 0)">
+    <rect y="63.95" width="0.40" height="36.05" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="36.05;14.42;36.05;28.84;36.05" keyTimes="0;0.4;0.6;0.8;1" dur="2.05s" repeatCount="indefinite" begin="-1.41s"/>
+        <animate attributeName="y" values="63.95;85.58;63.95;71.16;63.95" keyTimes="0;0.4;0.6;0.8;1" dur="2.05s" repeatCount="indefinite" begin="-1.41s"/>
+    </rect>
+    </g><g transform="translate(50.00 0)">
+    <rect y="5.24" width="0.40" height="94.76" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="94.76;37.91;94.76;75.81;94.76" keyTimes="0;0.4;0.6;0.8;1" dur="2.60s" repeatCount="indefinite" begin="-0.25s"/>
+        <animate attributeName="y" values="5.24;62.09;5.24;24.19;5.24" keyTimes="0;0.4;0.6;0.8;1" dur="2.60s" repeatCount="indefinite" begin="-0.25s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="5.24;62.09;5.24;24.19;5.24" keyTimes="0;0.4;0.6;0.8;1" dur="2.60s" repeatCount="indefinite" begin="-0.25s"/>
+        </circle>
+        </g><g transform="translate(51.00 0)">
+    <rect y="53.58" width="0.40" height="46.42" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="46.42;18.57;46.42;37.14;46.42" keyTimes="0;0.4;0.6;0.8;1" dur="2.35s" repeatCount="indefinite" begin="-1.16s"/>
+        <animate attributeName="y" values="53.58;81.43;53.58;62.86;53.58" keyTimes="0;0.4;0.6;0.8;1" dur="2.35s" repeatCount="indefinite" begin="-1.16s"/>
+    </rect>
+    </g><g transform="translate(52.00 0)">
+    <rect y="69.04" width="0.40" height="30.96" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="30.96;12.38;30.96;24.77;30.96" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.90s"/>
+        <animate attributeName="y" values="69.04;87.62;69.04;75.23;69.04" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.90s"/>
+    </rect>
+    </g><g transform="translate(53.00 0)">
+    <rect y="6.76" width="0.40" height="93.24" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="93.24;37.30;93.24;74.59;93.24" keyTimes="0;0.4;0.6;0.8;1" dur="2.20s" repeatCount="indefinite" begin="-0.68s"/>
+        <animate attributeName="y" values="6.76;62.70;6.76;25.41;6.76" keyTimes="0;0.4;0.6;0.8;1" dur="2.20s" repeatCount="indefinite" begin="-0.68s"/>
+    </rect>
+    </g><g transform="translate(54.00 0)">
+    <rect y="18.05" width="0.40" height="81.95" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="81.95;32.78;81.95;65.56;81.95" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-0.43s"/>
+        <animate attributeName="y" values="18.05;67.22;18.05;34.44;18.05" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-0.43s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="18.05;67.22;18.05;34.44;18.05" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-0.43s"/>
+        </circle>
+        </g><g transform="translate(55.00 0)">
+    <rect y="46.94" width="0.40" height="53.06" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="53.06;21.22;53.06;42.45;53.06" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.91s"/>
+        <animate attributeName="y" values="46.94;78.78;46.94;57.55;46.94" keyTimes="0;0.4;0.6;0.8;1" dur="3.39s" repeatCount="indefinite" begin="-0.91s"/>
+    </rect>
+    </g><g transform="translate(56.00 0)">
+    <rect y="23.96" width="0.40" height="76.04" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="76.04;30.42;76.04;60.83;76.04" keyTimes="0;0.4;0.6;0.8;1" dur="1.73s" repeatCount="indefinite" begin="-0.21s"/>
+        <animate attributeName="y" values="23.96;69.58;23.96;39.17;23.96" keyTimes="0;0.4;0.6;0.8;1" dur="1.73s" repeatCount="indefinite" begin="-0.21s"/>
+    </rect>
+    </g><g transform="translate(57.00 0)">
+    <rect y="11.81" width="0.40" height="88.19" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="88.19;35.28;88.19;70.55;88.19" keyTimes="0;0.4;0.6;0.8;1" dur="2.73s" repeatCount="indefinite" begin="-0.55s"/>
+        <animate attributeName="y" values="11.81;64.72;11.81;29.45;11.81" keyTimes="0;0.4;0.6;0.8;1" dur="2.73s" repeatCount="indefinite" begin="-0.55s"/>
+    </rect>
+    </g><g transform="translate(58.00 0)">
+    <rect y="7.73" width="0.40" height="92.27" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="92.27;36.91;92.27;73.82;92.27" keyTimes="0;0.4;0.6;0.8;1" dur="3.41s" repeatCount="indefinite" begin="-1.16s"/>
+        <animate attributeName="y" values="7.73;63.09;7.73;26.18;7.73" keyTimes="0;0.4;0.6;0.8;1" dur="3.41s" repeatCount="indefinite" begin="-1.16s"/>
+    </rect>
+    </g><g transform="translate(59.00 0)">
+    <rect y="8.58" width="0.40" height="91.42" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="91.42;36.57;91.42;73.13;91.42" keyTimes="0;0.4;0.6;0.8;1" dur="1.54s" repeatCount="indefinite" begin="-1.19s"/>
+        <animate attributeName="y" values="8.58;63.43;8.58;26.87;8.58" keyTimes="0;0.4;0.6;0.8;1" dur="1.54s" repeatCount="indefinite" begin="-1.19s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="8.58;63.43;8.58;26.87;8.58" keyTimes="0;0.4;0.6;0.8;1" dur="1.54s" repeatCount="indefinite" begin="-1.19s"/>
+        </circle>
+        </g><g transform="translate(60.00 0)">
+    <rect y="17.67" width="0.40" height="82.33" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="82.33;32.93;82.33;65.86;82.33" keyTimes="0;0.4;0.6;0.8;1" dur="2.42s" repeatCount="indefinite" begin="-1.79s"/>
+        <animate attributeName="y" values="17.67;67.07;17.67;34.14;17.67" keyTimes="0;0.4;0.6;0.8;1" dur="2.42s" repeatCount="indefinite" begin="-1.79s"/>
+    </rect>
+    </g><g transform="translate(61.00 0)">
+    <rect y="65.37" width="0.40" height="34.63" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="34.63;13.85;34.63;27.71;34.63" keyTimes="0;0.4;0.6;0.8;1" dur="2.13s" repeatCount="indefinite" begin="-0.49s"/>
+        <animate attributeName="y" values="65.37;86.15;65.37;72.29;65.37" keyTimes="0;0.4;0.6;0.8;1" dur="2.13s" repeatCount="indefinite" begin="-0.49s"/>
+    </rect>
+    </g><g transform="translate(62.00 0)">
+    <rect y="69.40" width="0.40" height="30.60" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="30.60;12.24;30.60;24.48;30.60" keyTimes="0;0.4;0.6;0.8;1" dur="2.96s" repeatCount="indefinite" begin="-1.41s"/>
+        <animate attributeName="y" values="69.40;87.76;69.40;75.52;69.40" keyTimes="0;0.4;0.6;0.8;1" dur="2.96s" repeatCount="indefinite" begin="-1.41s"/>
+    </rect>
+    </g><g transform="translate(63.00 0)">
+    <rect y="63.98" width="0.40" height="36.02" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="36.02;14.41;36.02;28.82;36.02" keyTimes="0;0.4;0.6;0.8;1" dur="2.27s" repeatCount="indefinite" begin="-0.10s"/>
+        <animate attributeName="y" values="63.98;85.59;63.98;71.18;63.98" keyTimes="0;0.4;0.6;0.8;1" dur="2.27s" repeatCount="indefinite" begin="-0.10s"/>
+    </rect>
+    </g><g transform="translate(64.00 0)">
+    <rect y="19.64" width="0.40" height="80.36" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="80.36;32.15;80.36;64.29;80.36" keyTimes="0;0.4;0.6;0.8;1" dur="2.94s" repeatCount="indefinite" begin="-1.54s"/>
+        <animate attributeName="y" values="19.64;67.85;19.64;35.71;19.64" keyTimes="0;0.4;0.6;0.8;1" dur="2.94s" repeatCount="indefinite" begin="-1.54s"/>
+    </rect>
+    </g><g transform="translate(65.00 0)">
+    <rect y="60.33" width="0.40" height="39.67" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="39.67;15.87;39.67;31.74;39.67" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-1.17s"/>
+        <animate attributeName="y" values="60.33;84.13;60.33;68.26;60.33" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-1.17s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="60.33;84.13;60.33;68.26;60.33" keyTimes="0;0.4;0.6;0.8;1" dur="2.57s" repeatCount="indefinite" begin="-1.17s"/>
+        </circle>
+        </g><g transform="translate(66.00 0)">
+    <rect y="15.57" width="0.40" height="84.43" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="84.43;33.77;84.43;67.54;84.43" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-0.01s"/>
+        <animate attributeName="y" values="15.57;66.23;15.57;32.46;15.57" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-0.01s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="15.57;66.23;15.57;32.46;15.57" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-0.01s"/>
+        </circle>
+        </g><g transform="translate(67.00 0)">
+    <rect y="24.63" width="0.40" height="75.37" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="75.37;30.15;75.37;60.29;75.37" keyTimes="0;0.4;0.6;0.8;1" dur="2.41s" repeatCount="indefinite" begin="-0.16s"/>
+        <animate attributeName="y" values="24.63;69.85;24.63;39.71;24.63" keyTimes="0;0.4;0.6;0.8;1" dur="2.41s" repeatCount="indefinite" begin="-0.16s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="24.63;69.85;24.63;39.71;24.63" keyTimes="0;0.4;0.6;0.8;1" dur="2.41s" repeatCount="indefinite" begin="-0.16s"/>
+        </circle>
+        </g><g transform="translate(68.00 0)">
+    <rect y="59.57" width="0.40" height="40.43" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="40.43;16.17;40.43;32.34;40.43" keyTimes="0;0.4;0.6;0.8;1" dur="2.71s" repeatCount="indefinite" begin="-1.13s"/>
+        <animate attributeName="y" values="59.57;83.83;59.57;67.66;59.57" keyTimes="0;0.4;0.6;0.8;1" dur="2.71s" repeatCount="indefinite" begin="-1.13s"/>
+    </rect>
+    </g><g transform="translate(69.00 0)">
+    <rect y="38.54" width="0.40" height="61.46" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="61.46;24.58;61.46;49.17;61.46" keyTimes="0;0.4;0.6;0.8;1" dur="2.97s" repeatCount="indefinite" begin="-1.70s"/>
+        <animate attributeName="y" values="38.54;75.42;38.54;50.83;38.54" keyTimes="0;0.4;0.6;0.8;1" dur="2.97s" repeatCount="indefinite" begin="-1.70s"/>
+    </rect>
+    </g><g transform="translate(70.00 0)">
+    <rect y="49.04" width="0.40" height="50.96" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="50.96;20.38;50.96;40.77;50.96" keyTimes="0;0.4;0.6;0.8;1" dur="3.44s" repeatCount="indefinite" begin="-0.15s"/>
+        <animate attributeName="y" values="49.04;79.62;49.04;59.23;49.04" keyTimes="0;0.4;0.6;0.8;1" dur="3.44s" repeatCount="indefinite" begin="-0.15s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="49.04;79.62;49.04;59.23;49.04" keyTimes="0;0.4;0.6;0.8;1" dur="3.44s" repeatCount="indefinite" begin="-0.15s"/>
+        </circle>
+        </g><g transform="translate(71.00 0)">
+    <rect y="54.45" width="0.40" height="45.55" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="45.55;18.22;45.55;36.44;45.55" keyTimes="0;0.4;0.6;0.8;1" dur="2.37s" repeatCount="indefinite" begin="-0.88s"/>
+        <animate attributeName="y" values="54.45;81.78;54.45;63.56;54.45" keyTimes="0;0.4;0.6;0.8;1" dur="2.37s" repeatCount="indefinite" begin="-0.88s"/>
+    </rect>
+    </g><g transform="translate(72.00 0)">
+    <rect y="33.18" width="0.40" height="66.82" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="66.82;26.73;66.82;53.46;66.82" keyTimes="0;0.4;0.6;0.8;1" dur="2.19s" repeatCount="indefinite" begin="-0.28s"/>
+        <animate attributeName="y" values="33.18;73.27;33.18;46.54;33.18" keyTimes="0;0.4;0.6;0.8;1" dur="2.19s" repeatCount="indefinite" begin="-0.28s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="33.18;73.27;33.18;46.54;33.18" keyTimes="0;0.4;0.6;0.8;1" dur="2.19s" repeatCount="indefinite" begin="-0.28s"/>
+        </circle>
+        </g><g transform="translate(73.00 0)">
+    <rect y="72.16" width="0.40" height="27.84" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="27.84;11.13;27.84;22.27;27.84" keyTimes="0;0.4;0.6;0.8;1" dur="2.62s" repeatCount="indefinite" begin="-0.63s"/>
+        <animate attributeName="y" values="72.16;88.87;72.16;77.73;72.16" keyTimes="0;0.4;0.6;0.8;1" dur="2.62s" repeatCount="indefinite" begin="-0.63s"/>
+    </rect>
+    </g><g transform="translate(74.00 0)">
+    <rect y="65.33" width="0.40" height="34.67" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="34.67;13.87;34.67;27.74;34.67" keyTimes="0;0.4;0.6;0.8;1" dur="2.50s" repeatCount="indefinite" begin="-1.05s"/>
+        <animate attributeName="y" values="65.33;86.13;65.33;72.26;65.33" keyTimes="0;0.4;0.6;0.8;1" dur="2.50s" repeatCount="indefinite" begin="-1.05s"/>
+    </rect>
+    </g><g transform="translate(75.00 0)">
+    <rect y="35.80" width="0.40" height="64.20" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="64.20;25.68;64.20;51.36;64.20" keyTimes="0;0.4;0.6;0.8;1" dur="2.77s" repeatCount="indefinite" begin="-0.05s"/>
+        <animate attributeName="y" values="35.80;74.32;35.80;48.64;35.80" keyTimes="0;0.4;0.6;0.8;1" dur="2.77s" repeatCount="indefinite" begin="-0.05s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="35.80;74.32;35.80;48.64;35.80" keyTimes="0;0.4;0.6;0.8;1" dur="2.77s" repeatCount="indefinite" begin="-0.05s"/>
+        </circle>
+        </g><g transform="translate(76.00 0)">
+    <rect y="37.20" width="0.40" height="62.80" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="62.80;25.12;62.80;50.24;62.80" keyTimes="0;0.4;0.6;0.8;1" dur="2.78s" repeatCount="indefinite" begin="-1.67s"/>
+        <animate attributeName="y" values="37.20;74.88;37.20;49.76;37.20" keyTimes="0;0.4;0.6;0.8;1" dur="2.78s" repeatCount="indefinite" begin="-1.67s"/>
+    </rect>
+    </g><g transform="translate(77.00 0)">
+    <rect y="55.07" width="0.40" height="44.93" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="44.93;17.97;44.93;35.94;44.93" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-1.85s"/>
+        <animate attributeName="y" values="55.07;82.03;55.07;64.06;55.07" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-1.85s"/>
+    </rect>
+    </g><g transform="translate(78.00 0)">
+    <rect y="46.01" width="0.40" height="53.99" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="53.99;21.59;53.99;43.19;53.99" keyTimes="0;0.4;0.6;0.8;1" dur="1.51s" repeatCount="indefinite" begin="-1.64s"/>
+        <animate attributeName="y" values="46.01;78.41;46.01;56.81;46.01" keyTimes="0;0.4;0.6;0.8;1" dur="1.51s" repeatCount="indefinite" begin="-1.64s"/>
+    </rect>
+    </g><g transform="translate(79.00 0)">
+    <rect y="47.98" width="0.40" height="52.02" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="52.02;20.81;52.02;41.61;52.02" keyTimes="0;0.4;0.6;0.8;1" dur="3.14s" repeatCount="indefinite" begin="-1.43s"/>
+        <animate attributeName="y" values="47.98;79.19;47.98;58.39;47.98" keyTimes="0;0.4;0.6;0.8;1" dur="3.14s" repeatCount="indefinite" begin="-1.43s"/>
+    </rect>
+    </g><g transform="translate(80.00 0)">
+    <rect y="51.95" width="0.40" height="48.05" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="48.05;19.22;48.05;38.44;48.05" keyTimes="0;0.4;0.6;0.8;1" dur="2.25s" repeatCount="indefinite" begin="-0.63s"/>
+        <animate attributeName="y" values="51.95;80.78;51.95;61.56;51.95" keyTimes="0;0.4;0.6;0.8;1" dur="2.25s" repeatCount="indefinite" begin="-0.63s"/>
+    </rect>
+    </g><g transform="translate(81.00 0)">
+    <rect y="45.85" width="0.40" height="54.15" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="54.15;21.66;54.15;43.32;54.15" keyTimes="0;0.4;0.6;0.8;1" dur="1.54s" repeatCount="indefinite" begin="-0.15s"/>
+        <animate attributeName="y" values="45.85;78.34;45.85;56.68;45.85" keyTimes="0;0.4;0.6;0.8;1" dur="1.54s" repeatCount="indefinite" begin="-0.15s"/>
+    </rect>
+    </g><g transform="translate(82.00 0)">
+    <rect y="66.71" width="0.40" height="33.29" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="33.29;13.32;33.29;26.63;33.29" keyTimes="0;0.4;0.6;0.8;1" dur="3.22s" repeatCount="indefinite" begin="-1.85s"/>
+        <animate attributeName="y" values="66.71;86.68;66.71;73.37;66.71" keyTimes="0;0.4;0.6;0.8;1" dur="3.22s" repeatCount="indefinite" begin="-1.85s"/>
+    </rect>
+    </g><g transform="translate(83.00 0)">
+    <rect y="69.52" width="0.40" height="30.48" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="30.48;12.19;30.48;24.39;30.48" keyTimes="0;0.4;0.6;0.8;1" dur="2.12s" repeatCount="indefinite" begin="-1.75s"/>
+        <animate attributeName="y" values="69.52;87.81;69.52;75.61;69.52" keyTimes="0;0.4;0.6;0.8;1" dur="2.12s" repeatCount="indefinite" begin="-1.75s"/>
+    </rect>
+    </g><g transform="translate(84.00 0)">
+    <rect y="75.99" width="0.40" height="24.01" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="24.01;9.61;24.01;19.21;24.01" keyTimes="0;0.4;0.6;0.8;1" dur="1.56s" repeatCount="indefinite" begin="-0.88s"/>
+        <animate attributeName="y" values="75.99;90.39;75.99;80.79;75.99" keyTimes="0;0.4;0.6;0.8;1" dur="1.56s" repeatCount="indefinite" begin="-0.88s"/>
+    </rect>
+    </g><g transform="translate(85.00 0)">
+    <rect y="71.04" width="0.40" height="28.96" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="28.96;11.58;28.96;23.17;28.96" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.58s"/>
+        <animate attributeName="y" values="71.04;88.42;71.04;76.83;71.04" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.58s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="71.04;88.42;71.04;76.83;71.04" keyTimes="0;0.4;0.6;0.8;1" dur="1.81s" repeatCount="indefinite" begin="-1.58s"/>
+        </circle>
+        </g><g transform="translate(86.00 0)">
+    <rect y="63.46" width="0.40" height="36.54" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="36.54;14.61;36.54;29.23;36.54" keyTimes="0;0.4;0.6;0.8;1" dur="1.92s" repeatCount="indefinite" begin="-0.68s"/>
+        <animate attributeName="y" values="63.46;85.39;63.46;70.77;63.46" keyTimes="0;0.4;0.6;0.8;1" dur="1.92s" repeatCount="indefinite" begin="-0.68s"/>
+    </rect>
+    </g><g transform="translate(87.00 0)">
+    <rect y="75.51" width="0.40" height="24.49" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="24.49;9.79;24.49;19.59;24.49" keyTimes="0;0.4;0.6;0.8;1" dur="1.85s" repeatCount="indefinite" begin="-0.03s"/>
+        <animate attributeName="y" values="75.51;90.21;75.51;80.41;75.51" keyTimes="0;0.4;0.6;0.8;1" dur="1.85s" repeatCount="indefinite" begin="-0.03s"/>
+    </rect>
+    </g><g transform="translate(88.00 0)">
+    <rect y="74.86" width="0.40" height="25.14" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="25.14;10.05;25.14;20.11;25.14" keyTimes="0;0.4;0.6;0.8;1" dur="1.62s" repeatCount="indefinite" begin="-1.80s"/>
+        <animate attributeName="y" values="74.86;89.95;74.86;79.89;74.86" keyTimes="0;0.4;0.6;0.8;1" dur="1.62s" repeatCount="indefinite" begin="-1.80s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="74.86;89.95;74.86;79.89;74.86" keyTimes="0;0.4;0.6;0.8;1" dur="1.62s" repeatCount="indefinite" begin="-1.80s"/>
+        </circle>
+        </g><g transform="translate(89.00 0)">
+    <rect y="60.77" width="0.40" height="39.23" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="39.23;15.69;39.23;31.38;39.23" keyTimes="0;0.4;0.6;0.8;1" dur="3.35s" repeatCount="indefinite" begin="-0.24s"/>
+        <animate attributeName="y" values="60.77;84.31;60.77;68.62;60.77" keyTimes="0;0.4;0.6;0.8;1" dur="3.35s" repeatCount="indefinite" begin="-0.24s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="60.77;84.31;60.77;68.62;60.77" keyTimes="0;0.4;0.6;0.8;1" dur="3.35s" repeatCount="indefinite" begin="-0.24s"/>
+        </circle>
+        </g><g transform="translate(90.00 0)">
+    <rect y="72.71" width="0.40" height="27.29" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="27.29;10.92;27.29;21.83;27.29" keyTimes="0;0.4;0.6;0.8;1" dur="3.31s" repeatCount="indefinite" begin="-0.37s"/>
+        <animate attributeName="y" values="72.71;89.08;72.71;78.17;72.71" keyTimes="0;0.4;0.6;0.8;1" dur="3.31s" repeatCount="indefinite" begin="-0.37s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="72.71;89.08;72.71;78.17;72.71" keyTimes="0;0.4;0.6;0.8;1" dur="3.31s" repeatCount="indefinite" begin="-0.37s"/>
+        </circle>
+        </g><g transform="translate(91.00 0)">
+    <rect y="69.83" width="0.40" height="30.17" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="30.17;12.07;30.17;24.14;30.17" keyTimes="0;0.4;0.6;0.8;1" dur="3.46s" repeatCount="indefinite" begin="-0.58s"/>
+        <animate attributeName="y" values="69.83;87.93;69.83;75.86;69.83" keyTimes="0;0.4;0.6;0.8;1" dur="3.46s" repeatCount="indefinite" begin="-0.58s"/>
+    </rect>
+    </g><g transform="translate(92.00 0)">
+    <rect y="73.03" width="0.40" height="26.97" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="26.97;10.79;26.97;21.58;26.97" keyTimes="0;0.4;0.6;0.8;1" dur="2.33s" repeatCount="indefinite" begin="-0.04s"/>
+        <animate attributeName="y" values="73.03;89.21;73.03;78.42;73.03" keyTimes="0;0.4;0.6;0.8;1" dur="2.33s" repeatCount="indefinite" begin="-0.04s"/>
+    </rect>
+    </g><g transform="translate(93.00 0)">
+    <rect y="84.96" width="0.40" height="15.04" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="15.04;6.02;15.04;12.03;15.04" keyTimes="0;0.4;0.6;0.8;1" dur="2.75s" repeatCount="indefinite" begin="-0.05s"/>
+        <animate attributeName="y" values="84.96;93.98;84.96;87.97;84.96" keyTimes="0;0.4;0.6;0.8;1" dur="2.75s" repeatCount="indefinite" begin="-0.05s"/>
+    </rect>
+    </g><g transform="translate(94.00 0)">
+    <rect y="90.48" width="0.40" height="9.52" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="9.52;3.81;9.52;7.61;9.52" keyTimes="0;0.4;0.6;0.8;1" dur="2.44s" repeatCount="indefinite" begin="-1.96s"/>
+        <animate attributeName="y" values="90.48;96.19;90.48;92.39;90.48" keyTimes="0;0.4;0.6;0.8;1" dur="2.44s" repeatCount="indefinite" begin="-1.96s"/>
+    </rect>
+    </g><g transform="translate(95.00 0)">
+    <rect y="87.18" width="0.40" height="12.82" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="12.82;5.13;12.82;10.26;12.82" keyTimes="0;0.4;0.6;0.8;1" dur="3.48s" repeatCount="indefinite" begin="-1.08s"/>
+        <animate attributeName="y" values="87.18;94.87;87.18;89.74;87.18" keyTimes="0;0.4;0.6;0.8;1" dur="3.48s" repeatCount="indefinite" begin="-1.08s"/>
+    </rect>
+    </g><g transform="translate(96.00 0)">
+    <rect y="83.22" width="0.40" height="16.78" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="16.78;6.71;16.78;13.42;16.78" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-1.07s"/>
+        <animate attributeName="y" values="83.22;93.29;83.22;86.58;83.22" keyTimes="0;0.4;0.6;0.8;1" dur="2.24s" repeatCount="indefinite" begin="-1.07s"/>
+    </rect>
+    </g><g transform="translate(97.00 0)">
+    <rect y="88.31" width="0.40" height="11.69" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="11.69;4.68;11.69;9.35;11.69" keyTimes="0;0.4;0.6;0.8;1" dur="1.60s" repeatCount="indefinite" begin="-1.91s"/>
+        <animate attributeName="y" values="88.31;95.32;88.31;90.65;88.31" keyTimes="0;0.4;0.6;0.8;1" dur="1.60s" repeatCount="indefinite" begin="-1.91s"/>
+    </rect>
+    </g><g transform="translate(98.00 0)">
+    <rect y="90.08" width="0.40" height="9.92" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="9.92;3.97;9.92;7.94;9.92" keyTimes="0;0.4;0.6;0.8;1" dur="2.94s" repeatCount="indefinite" begin="-0.66s"/>
+        <animate attributeName="y" values="90.08;96.03;90.08;92.06;90.08" keyTimes="0;0.4;0.6;0.8;1" dur="2.94s" repeatCount="indefinite" begin="-0.66s"/>
+    </rect>
+    </g><g transform="translate(99.00 0)">
+    <rect y="92.09" width="0.40" height="7.91" fill="url(#barGrad)" opacity="0.4">
+        <animate attributeName="height" values="7.91;3.16;7.91;6.33;7.91" keyTimes="0;0.4;0.6;0.8;1" dur="1.59s" repeatCount="indefinite" begin="-0.23s"/>
+        <animate attributeName="y" values="92.09;96.84;92.09;93.67;92.09" keyTimes="0;0.4;0.6;0.8;1" dur="1.59s" repeatCount="indefinite" begin="-0.23s"/>
+    </rect>
+    
+        <circle cx="0.20" r="0.32" fill="#fff" filter="url(#neonGlow)" opacity="0.5">
+             <animate attributeName="cy" values="92.09;96.84;92.09;93.67;92.09" keyTimes="0;0.4;0.6;0.8;1" dur="1.59s" repeatCount="indefinite" begin="-0.23s"/>
+        </circle>
+        </g></svg>
+        </div>
+        <div class="container">
+
+            <!-- Hero / Header -->
+            <div class="header">
+                <div class="avatar-circle">
+                    <img src="profile.jpeg" alt="Harshita Oberoi" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="user-info">
+                    <div class="user-name-row">
+                        <h1>Harshita Oberoi</h1>
+                        <span class="pro-badge">Pro</span>
+                    </div>
+                    <p class="bio">
+                        Software Engineer specializing in AI/ML, Fullstack, and DevOps.
+                        Bridging ML models & modern web technologies
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <span class="tab active">Overview</span>
+                <span class="tab">Projects</span>
+                <span class="tab">Packages</span>
+                <span class="tab">Stars</span>
+            </div>
+
+            <div class="dashboard-grid">
+
+                <!-- LEFT COLUMN: Profile Info, Socials, Detailed Skills, Education -->
+                <div class="left-col">
+
+                    <!-- Connect -->
+                    <h2>Connect</h2>
+                    <div class="social-grid">
+                        <a href="https://github.com/HarshitaOberoi" class="social-card">
+                            <span class="social-icon"></span>
+                            <span class="social-text">GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/harshita-oberoi-7a621b282" class="social-card">
+                            <span class="social-icon"></span>
+                            <span class="social-text">LinkedIn</span>
+                        </a>
+                        <a href="https://harshitaoberoi-portfolio-website.vercel.app/" class="social-card">
+                            <span class="social-icon"></span>
+                            <span class="social-text">Portfolio</span>
+                        </a>
+                        <a href="mailto:harshitaoberoi2709@gmail.com" class="social-card">
+                            <span class="social-icon"></span>
+                            <span class="social-text">Email</span>
+                        </a>
+                    </div>
+
+                    <!-- Tech Wisdom -->
+                    <h2>Tech Wisdom</h2>
+                    <div class="wisdom-card">
+                        <div class="term-header">
+                            <div class="term-dot red"></div>
+                            <div class="term-dot yellow"></div>
+                            <div class="term-dot green"></div>
+                            <span style="margin-left: 8px; font-size: 11px; color: #8b949e;">wisdom.exe</span>
+                        </div>
+                        <div class="term-body">
+                            <div class="fact-item">> There are 10 types of people: those who understand binary, and
+                                those who don't.</div>
+                            <div class="fact-item">> "Artificial Intelligence is no match for natural stupidity."</div>
+                            <div class="fact-item">> One man's crappy software is another man's full-time job.</div>
+                            <div class="fact-item">> Git Push Force: The 'because I said so' of programming.</div>
+                            <div class="fact-item">> Semicolon: A hide and seek champion since 1958.</div>
+                            <div class="fact-item">> #ItWorksOnMyMachine</div>
+                            <div class="fact-item">> Real programmers count from 0.</div>
+                            <div class="fact-item">> I don't always test my code, but when I do, I do it in production.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <h2>Education</h2>
+                    <div class="content-card" style="padding: 0; background: none; border: none;">
+                        <div class="edu-card">
+                            <h3 style="color: #fff; margin-bottom: 4px;">NIT Jalandhar</h3>
+                            <div class="edu-dates">2023 – Present</div>
+                            <div style="font-size: 13px; color: var(--text-secondary);">B.Tech in Computer Science
+                                Engineering</div>
+                            <div style="font-size: 12px; color: var(--accent-teal); margin-top: 4px;">CGPA: 8.78/10
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <h2>Technical Skills</h2>
+                    <div class="content-card">
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">Generative AI / LLM </div>
+                            <div class="tags-container">
+                                <span class="skill-tag highlight">Agentic AI</span>
+                                <span class="skill-tag">Multi-agent pipelines</span>
+                                <span class="skill-tag">LangChain</span>
+                                <span class="skill-tag">LangGraph</span>
+                                <span class="skill-tag">Prompt Engineering</span>
+                                <span class="skill-tag">RAG</span>
+                                <span class="skill-tag">CoT/ReAct</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">Languages</div>
+                            <div class="tags-container">
+                                <span class="skill-tag highlight">Python (Expert)</span>
+                                <span class="skill-tag">JavaScript (ES6)</span>
+                                <span class="skill-tag">C</span>
+                                <span class="skill-tag">SQL</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">Frameworks & Libraries</div>
+                            <div class="tags-container">
+                                <span class="skill-tag">FastAPI</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">Streamlit</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Next.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">TensorFlow</span>
+                                <span class="skill-tag">PyTorch</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">Integrations & Automation</div>
+                            <div class="tags-container">
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag">Webhooks</span>
+                                <span class="skill-tag">Zapier</span>
+                                <span class="skill-tag">Pabbly</span>
+                                <span class="skill-tag">WhatsApp API</span>
+                                <span class="skill-tag">Payment Gateways</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">DevOps & Cloud</div>
+                            <div class="tags-container">
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">GitHub Actions</span>
+                                <span class="skill-tag">AWS (EC2, S3)</span>
+                                <span class="skill-tag">Microservices</span>
+                                <span class="skill-tag">CI/CD</span>
+                                <span class="skill-tag">Vercel</span>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <div class="skills-category-title">Data, Databases & CRM</div>
+                            <div class="tags-container">
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">Redis</span>
+                                <span class="skill-tag">Zoho CRM</span>
+                                <span class="skill-tag">Salesforce/HubSpot</span>
+                                <span class="skill-tag">Adv Excel/Sheets</span>
+                                <span class="skill-tag">Data Visualization</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Analytics, Static Growth, Experience -->
+                <div class="right-col">
+
+                    <!-- Advanced Analytics -->
+                    <h2>Analytics & Data</h2>
+
+                    <!-- Growth Chart (Static) -->
+                    <div class="full-width-chart">
+                        <h3 style="margin-bottom: 8px; font-size: 13px; color: var(--text-secondary);">Total Interaction
+                            Growth</h3>
+                        <div class="content-card"
+                            style="padding: 20px; display: flex; align-items: flex-end; justify-content: center; height: 180px; position: relative; overflow: hidden;">
+                            <!-- Static SVG for "Increasing" Growth -->
+                            <svg width="100%" height="100%" viewBox="0 0 500 150" preserveAspectRatio="none"
+                                style="position: absolute; bottom: 0; left: 0;">
+                                <defs>
+                                    <linearGradient id="tealGradient" x1="0" x2="0" y1="0" y2="1">
+                                        <stop offset="0%" stop-color="rgba(0, 242, 255, 0.5)" />
+                                        <stop offset="100%" stop-color="rgba(0, 242, 255, 0)" />
+                                    </linearGradient>
+                                </defs>
+                                <path
+                                    d="M0,150 L0,120 C50,120 50,100 100,105 C150,110 150,90 200,80 C250,70 250,90 300,70 C350,50 350,60 400,40 C450,20 450,30 500,10 L500,150 Z"
+                                    fill="url(#tealGradient)" />
+                                <path
+                                    d="M0,120 C50,120 50,100 100,105 C150,110 150,90 200,80 C250,70 250,90 300,70 C350,50 350,60 400,40 C450,20 450,30 500,10"
+                                    fill="none" stroke="#00f2ff" stroke-width="3" stroke-linecap="round" />
+                                <!-- Points -->
+                                <circle cx="100" cy="105" r="3" fill="#fff" />
+                                <circle cx="200" cy="80" r="3" fill="#fff" />
+                                <circle cx="300" cy="70" r="3" fill="#fff" />
+                                <circle cx="400" cy="40" r="3" fill="#fff" />
+                                <circle cx="500" cy="10" r="3" fill="#fff" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Commit Activity & Streak Grid -->
+                    <div class="chart-grid">
+                        <!-- Activity Graph -->
+                        <img class="stats-img"
+                            src="https://github-readme-activity-graph.vercel.app/graph?username=HarshitaOberoi&bg_color=0d1117&color=00f2ff&line=00f2ff&point=ffffff&area=true&hide_border=true"
+                            alt="Activity Graph" loading="lazy" decoding="async">
+
+                        <!-- Streak Stats -->
+                        <img class="stats-img" src="./streak.svg" alt="Streak Stats (Local)" loading="lazy"
+                            decoding="async">
+                    </div>
+
+
+
+                    <!-- Main GitHub Stats -->
+                    <div class="full-width-chart">
+                        <img class="stats-img" src="./stats.svg?v=2" alt="GitHub Stats (Local)" loading="lazy"
+                            decoding="async">
+                    </div>
+
+                    <!-- Trophies -->
+                    <div class="full-width-chart">
+                        <h3 style="margin-bottom: 12px">Achievements</h3>
+                        <img class="stats-img" src="./achievements.svg" alt="trophies" loading="lazy" decoding="async">
+                    </div>
+
+                    <!-- Experience Timeline -->
+                    <h2>Experience</h2>
+                    <div class="content-card">
+                        <div class="timeline">
+
+                            <!-- Krins Digital -->
+                            <div class="timeline-item">
+                                <div class="role-title">Software Engineer Intern</div>
+                                <div class="company-name">Krins Digital</div>
+                                <div class="role-desc">
+                                    <ul>
+                                        <li>Engineered crypto futures trading bot (RSI, EMA, MACD) boosting win rate by
+                                            15% and reducing latency by 30%.</li>
+                                        <li>Built secure REST APIs (Node.js, FastAPI) and React/Next.js dashboards.</li>
+                                        <li>Automated CI/CD with Docker + GitHub Actions.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Goldman Sachs -->
+                            <div class="timeline-item">
+                                <div class="role-title">Software Engineer Intern (Summer Analyst)</div>
+                                <div class="company-name">G S</div>
+                                <div class="role-desc">
+                                    <ul>
+                                        <li>Built Agentic AI workflows with LangGraph/LangChain using Router and
+                                            Supervisor architectures.</li>
+                                        <li>Scaled multi-agent pipelines for 10K–15K row datasets.</li>
+                                        <li>Applied CoT, ReAct, Reflexion reasoning to reduce hallucinations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- LunaLady AI -->
+                            <div class="timeline-item">
+                                <div class="role-title">Backend Developer (Freelance)</div>
+                                <div class="company-name">LunaLady AI</div>
+                                <div class="role-desc">
+                                    <ul>
+                                        <li>Architected backend NLP APIs powering a women’s health assistant; scaled to
+                                            5K+ DAUs.</li>
+                                        <li>Optimized query performance reducing response time by 40%.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Kodefort -->
+                            <div class="timeline-item" style="padding-bottom: 0;">
+                                <div class="role-title">Software Engineer Intern</div>
+                                <div class="company-name">Kodefort</div>
+                                <div class="role-desc">
+                                    <ul>
+                                        <li>Engineered responsive web apps using React.js, Next.js, and Tailwind CSS.
+                                        </li>
+                                        <li>Built secure full-stack solutions with Laravel, MongoDB, and MySQL.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="copyright">© Harshita Oberoi</div>
+                <div style="display: flex; gap: 12px; align-items: center;">
+                    <div class="footer-links">
+                        <span>Status: 🟢 Available for hire</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
