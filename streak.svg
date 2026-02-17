@@ -1,0 +1,27 @@
+<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+<style>
+.label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #c9d1d9; font-size: 14px; font-weight: 600; text-anchor: middle; }
+.value { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #fff; font-size: 28px; font-weight: 700; text-anchor: middle; }
+.date { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #c9d1d9; font-size: 12px; font-weight: 400; text-anchor: middle; opacity: 0.8; }
+.ring { fill: none; stroke: #00f2ff; stroke-width: 3; opacity: 0.3; }
+.fire { fill: #00f2ff; }
+</style>
+<rect width="500" height="200" fill="#0d1117" rx="10" ry="10" />
+<text x="83.33333333333333" y="40" class="label">Total Contributions</text>
+<text x="83.33333333333333" y="80" class="value">1,240</text>
+<text x="83.33333333333333" y="160" class="date">Oct 29, 2022 - Present</text>
+<line x1="166.66666666666666" y1="30" x2="166.66666666666666" y2="170" stroke="#30363d" stroke-width="1" />
+<text x="250.0" y="40" class="label">Current Streak</text>
+<text x="250.0" y="80" class="value">12</text>
+<text x="250.0" y="160" class="date">Feb 03, 2026 - Present</text>
+<circle cx="250.0" cy="115" r="4" class="fire" opacity="0.8">
+<animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+</circle>
+<line x1="333.3333333333333" y1="30" x2="333.3333333333333" y2="170" stroke="#30363d" stroke-width="1" />
+<text x="416.66666666666663" y="40" class="label">Longest Streak</text>
+<text x="416.66666666666663" y="80" class="value">45</text>
+<text x="416.66666666666663" y="160" class="date">Jan 10, 2025 - Feb 24, 2025</text>
+<circle cx="416.66666666666663" cy="115" r="4" class="fire" opacity="0.8">
+<animate attributeName="opacity" values="0.8;1;0.8" dur="1.5s" repeatCount="indefinite"/>
+</circle>
+</svg>

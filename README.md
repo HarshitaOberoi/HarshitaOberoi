@@ -23,12 +23,7 @@
                 <br />
                 <br />
                 <h2 style="border-bottom: 2px solid #00f2ff; padding-bottom: 8px;">Education</h2>
-                <h3>NIT Jalandhar</h3>
-                <p>
-                    <strong>B.Tech in Computer Science Engineering</strong><br />
-                    2023 – Present<br />
-                    <span style="color: #00f2ff;">CGPA: 8.78/10</span>
-                </p>
+                <img src="education_card.svg" width="100%" alt="Education" />
                 <br />
                 <h2 style="border-bottom: 2px solid #00f2ff; padding-bottom: 8px;">Technical Skills</h2>
                 <img src="skills.svg" width="100%" alt="Technical Skills" />
